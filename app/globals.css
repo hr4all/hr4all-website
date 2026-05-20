@@ -19,6 +19,7 @@ body {
   margin: 0;
   background: #ffffff;
   color: #05244a;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {

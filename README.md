@@ -25,3 +25,12 @@ Then open `http://localhost:3000`.
 - Why HR4All
 - Process
 - Contact
+
+## Service Pages
+
+The services section links to individual detail pages:
+
+- `/servicios/outsourcing-rrhh`
+- `/servicios/consultoria-estrategica`
+- `/servicios/capacitacion`
+- `/servicios/procesos-politicas`

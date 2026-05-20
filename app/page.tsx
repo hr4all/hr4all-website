@@ -1,9 +1,9 @@
+import Link from "next/link";
 import {
   ArrowRight,
   BarChart3,
   CheckCircle2,
   ClipboardList,
-  Handshake,
   Mail,
   MapPin,
   MessageCircle,
@@ -13,93 +13,70 @@ import {
   Target,
   Users,
 } from "lucide-react";
+import { services } from "./services";
 
-const services = [
-  {
-    title: "Outsourcing de RR.HH.",
-    text: "Gestión integral de procesos de Recursos Humanos para equipos que necesitan orden, seguimiento y continuidad.",
-    icon: Users,
-  },
-  {
-    title: "Consultoría estratégica",
-    text: "Diagnósticos claros, planes de acción y acompañamiento para convertir la gestión del talento en ventaja competitiva.",
-    icon: Target,
-  },
-  {
-    title: "Capacitación",
-    text: "Programas prácticos para fortalecer liderazgo, comunicación, desempeño y cultura organizacional.",
-    icon: Sparkles,
-  },
-  {
-    title: "Procesos y políticas",
-    text: "Diseño de procesos simples, medibles y escalables que reducen fricción administrativa.",
-    icon: ClipboardList,
-  },
-];
+const iconMap = {
+  users: Users,
+  target: Target,
+  sparkles: Sparkles,
+  clipboard: ClipboardList,
+};
 
 const reasons = [
-  "Especialización en PyMEs argentinas y sus desafíos reales de crecimiento.",
-  "Mirada estratégica sin perder cercanía operativa con los equipos.",
-  "Procesos simples, datos accionables y seguimiento constante.",
-  "Soluciones flexibles para empresas que necesitan avanzar sin sobredimensionar estructura.",
+  "Experiencia operativa en RR.HH., no solo diseño conceptual.",
+  "Procesos pensados para PyMEs argentinas: simples, claros y posibles de sostener.",
+  "Acompañamiento cercano para ordenar la gestión sin frenar la operación diaria.",
+  "People Operations, datos y mejora continua aplicados al tamaño real de cada empresa.",
 ];
 
 const steps = [
   {
-    title: "Diagnosticar",
-    text: "Relevamos procesos, roles, dolores y prioridades del negocio.",
+    title: "Relevamos",
+    text: "Entendemos cómo trabaja hoy la empresa: procesos, roles, urgencias, herramientas y puntos de fricción.",
   },
   {
-    title: "Diseñar",
-    text: "Definimos un plan de trabajo concreto, con etapas, responsables e indicadores.",
+    title: "Priorizamos",
+    text: "Definimos qué ordenar primero para lograr impacto operativo sin abrir más frentes de los necesarios.",
   },
   {
-    title: "Implementar",
-    text: "Acompañamos la ejecución con herramientas simples y gestión cercana.",
+    title: "Implementamos",
+    text: "Creamos procesos, documentación, rutinas e indicadores con seguimiento práctico.",
   },
   {
-    title: "Medir",
-    text: "Ajustamos sobre datos para sostener mejoras y escalar con orden.",
+    title: "Ajustamos",
+    text: "Medimos, corregimos y dejamos una operación más clara, repetible y escalable.",
   },
 ];
 
 const heroStats = [
-  { label: "Equipos más alineados", icon: Users },
-  { label: "Procesos más eficientes", icon: BarChart3 },
-  { label: "Decisiones con datos", icon: ShieldCheck },
+  { label: "Operación HR ordenada", icon: ClipboardList },
+  { label: "Procesos repetibles", icon: BarChart3 },
+  { label: "Mejores decisiones", icon: ShieldCheck },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-navy">
       <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/90 backdrop-blur">
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#inicio" className="flex items-center gap-3" aria-label="HR4All inicio">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+          <Link href="/" className="flex items-center gap-3" aria-label="HR4All inicio">
             <span className="grid h-11 w-11 place-items-center rounded-full bg-mint text-sm font-black text-forest">
               HR
             </span>
             <span>
               <span className="block text-lg font-black leading-none tracking-normal">HR4All</span>
-              <span className="text-xs font-semibold text-ink/60">Soluciones de Recursos Humanos</span>
+              <span className="text-xs font-semibold text-ink/60">People Operations para PyMEs</span>
             </span>
-          </a>
+          </Link>
           <div className="hidden items-center gap-8 text-sm font-bold text-ink/70 md:flex">
-            <a className="transition hover:text-forest" href="#servicios">
-              Servicios
-            </a>
-            <a className="transition hover:text-forest" href="#por-que">
-              Por qué HR4All
-            </a>
-            <a className="transition hover:text-forest" href="#proceso">
-              Proceso
-            </a>
-            <a className="transition hover:text-forest" href="#contacto">
-              Contacto
-            </a>
+            <a className="transition hover:text-forest" href="#servicios">Servicios</a>
+            <a className="transition hover:text-forest" href="#por-que">Por qué HR4All</a>
+            <a className="transition hover:text-forest" href="#proceso">Proceso</a>
+            <a className="transition hover:text-forest" href="#contacto">Contacto</a>
           </div>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#f05931]"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#f05931]"
           >
             Agendar reunión
             <ArrowRight size={16} aria-hidden="true" />
@@ -112,15 +89,15 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
           <div className="relative z-10 flex flex-col justify-center">
             <p className="mb-5 text-sm font-black uppercase tracking-[0.28em] text-coral">
-              Soluciones estratégicas para PyMEs
+              RR.HH. concreto para PyMEs argentinas
             </p>
             <h1 className="max-w-3xl text-5xl font-black leading-[1.02] tracking-normal text-navy md:text-6xl lg:text-7xl">
-              Transformamos tu gestión de Recursos Humanos en{" "}
-              <span className="text-coral">resultados concretos</span>
+              Ordenamos la operación de personas para que tu empresa pueda crecer
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/75">
-              Ayudamos a empresas argentinas a ordenar procesos, desarrollar talento y tomar
-              mejores decisiones para crecer de manera sostenible.
+              Diseñamos, implementamos y acompañamos procesos de RR.HH. que se usan en la práctica:
+              payroll, novedades, selección, onboarding, performance, políticas, indicadores y
+              soporte operativo para equipos en crecimiento.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -131,10 +108,10 @@ export default function Home() {
                 <ArrowRight size={18} aria-hidden="true" />
               </a>
               <a
-                href="#proceso"
+                href="#servicios"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-coral px-7 py-4 text-sm font-black text-coral transition hover:bg-coral hover:text-white"
               >
-                Cómo trabajamos
+                Ver servicios
               </a>
             </div>
             <div className="mt-12 grid max-w-2xl gap-5 sm:grid-cols-3">
@@ -157,27 +134,27 @@ export default function Home() {
                 <div className="mb-8 grid grid-cols-3 gap-3">
                   <div className="h-36 rounded-3xl bg-white/90 p-4 text-navy">
                     <Users className="mb-7 text-forest" size={28} />
-                    <p className="text-xs font-black uppercase text-ink/60">Talento</p>
-                    <p className="mt-1 text-2xl font-black">+42%</p>
+                    <p className="text-xs font-black uppercase text-ink/60">People Ops</p>
+                    <p className="mt-1 text-2xl font-black">360</p>
                   </div>
                   <div className="mt-12 h-36 rounded-3xl bg-mint p-4 text-navy">
                     <BarChart3 className="mb-7 text-forest" size={28} />
-                    <p className="text-xs font-black uppercase text-ink/60">Orden</p>
+                    <p className="text-xs font-black uppercase text-ink/60">Procesos</p>
                     <p className="mt-1 text-2xl font-black">100%</p>
                   </div>
                   <div className="h-36 rounded-3xl bg-coral p-4 text-white">
-                    <Handshake className="mb-7" size={28} />
-                    <p className="text-xs font-black uppercase text-white/75">Gestión</p>
-                    <p className="mt-1 text-2xl font-black">360</p>
+                    <ShieldCheck className="mb-7" size={28} />
+                    <p className="text-xs font-black uppercase text-white/75">Seguimiento</p>
+                    <p className="mt-1 text-2xl font-black">OK</p>
                   </div>
                 </div>
                 <p className="text-sm font-black uppercase tracking-[0.24em] text-mint">
-                  Nuestra filosofía
+                  Nuestra forma de trabajar
                 </p>
-                <h2 className="mt-4 text-4xl font-black leading-tight">Estrategia sin fricción</h2>
+                <h2 className="mt-4 text-4xl font-black leading-tight">Menos improvisación, más gestión</h2>
                 <p className="mt-4 max-w-md text-base leading-7 text-white/78">
-                  Eliminamos complejidad administrativa para que tu equipo se enfoque en lo que
-                  realmente importa: crecer con personas, procesos y cultura.
+                  Bajamos la estrategia a rutinas, responsables, documentación e indicadores para que
+                  RR.HH. acompañe la operación real de la empresa.
                 </p>
               </div>
             </div>
@@ -189,33 +166,36 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">
-                Nuestros servicios
-              </p>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">Servicios</p>
               <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-                Recursos Humanos que acompañan el negocio
+                Soluciones concretas para ordenar RR.HH.
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-ink/70">
-              Integramos estrategia y ejecución para que cada acción de RR.HH. tenga impacto real
-              en la operación diaria.
+              Cada servicio tiene un detalle propio para profundizar alcance, problemas que resolvemos
+              y entregables posibles según la etapa de tu PyME.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => {
-              const Icon = service.icon;
+              const Icon = iconMap[service.icon];
 
               return (
-                <article
-                  key={service.title}
-                  className="rounded-lg border border-navy/10 bg-white p-6 shadow-[0_10px_30px_rgba(5,36,74,0.05)]"
+                <Link
+                  key={service.slug}
+                  href={`/servicios/${service.slug}`}
+                  className="group rounded-lg border border-navy/10 bg-white p-6 shadow-[0_10px_30px_rgba(5,36,74,0.05)] transition duration-300 hover:-translate-y-1 hover:border-forest/35 hover:shadow-soft focus:outline-none focus:ring-4 focus:ring-mint"
                 >
-                  <span className="mb-8 grid h-12 w-12 place-items-center rounded-full bg-mint text-forest">
+                  <span className="mb-8 grid h-12 w-12 place-items-center rounded-full bg-mint text-forest transition group-hover:bg-forest group-hover:text-white">
                     <Icon size={24} aria-hidden="true" />
                   </span>
-                  <h3 className="text-xl font-black">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-ink/68">{service.text}</p>
-                </article>
+                  <h3 className="text-xl font-black">{service.name}</h3>
+                  <p className="mt-3 text-sm leading-6 text-ink/68">{service.summary}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-coral">
+                    Ver detalle
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -227,11 +207,12 @@ export default function Home() {
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-coral">Por qué HR4All</p>
             <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-              Consultoría cercana, ordenada y orientada a resultados
+              Consultoría boutique con foco operativo
             </h2>
             <p className="mt-5 text-lg leading-8 text-ink/72">
-              Trabajamos como un socio de gestión: entendemos tu etapa, priorizamos lo que mueve la
-              aguja y dejamos capacidades instaladas para que la mejora continúe.
+              Trabajamos cerca de dueños, líderes y equipos administrativos. No vendemos modelos
+              difíciles de implementar: ordenamos lo que pasa todos los días y lo convertimos en una
+              forma de gestión más profesional.
             </p>
           </div>
           <div className="grid gap-4">
@@ -253,7 +234,7 @@ export default function Home() {
           <div className="mb-12 max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-mint">Proceso</p>
             <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-              Un camino simple para pasar de la intención a la mejora
+              Un método claro para pasar del desorden a la mejora continua
             </h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -273,11 +254,11 @@ export default function Home() {
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">Contacto</p>
             <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-              Construyamos procesos de HR más eficientes
+              Hablemos de cómo ordenar tu operación de RR.HH.
             </h2>
             <p className="mt-5 text-lg leading-8 text-ink/72">
-              Contanos en qué etapa está tu empresa y coordinamos una primera conversación para
-              detectar prioridades.
+              Contanos qué está trabando la gestión de personas en tu empresa y coordinamos una
+              primera conversación para detectar prioridades concretas.
             </p>
             <div className="mt-8 grid gap-4 text-sm font-bold text-ink/72">
               <p className="flex items-center gap-3">

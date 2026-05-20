@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "HR4All | Consultoría de Recursos Humanos para PyMEs",
   description:
-    "Soluciones estratégicas de Recursos Humanos para PyMEs argentinas: outsourcing, consultoría, capacitación y procesos escalables.",
+    "Outsourcing, consultoría, capacitación y procesos de RR.HH. para PyMEs argentinas que necesitan ordenar su operación de personas.",
 };
 
 export default function RootLayout({

@@ -11,6 +11,9 @@ export type Service = {
   description: string;
   summary: string;
   icon: "users" | "target" | "sparkles" | "clipboard";
+  focus: string;
+  scopeTitle?: string;
+  scopeNote?: string;
   subservices: string[];
   detailTitle: string;
   detailItems: string[];
@@ -20,32 +23,29 @@ export const services: Service[] = [
   {
     slug: "outsourcing-rrhh",
     name: "Outsourcing de RR.HH.",
-    title: "Operación de RR.HH. simple, ordenada y escalable",
+    title: "Externalizá procesos de RR.HH. sin sumar estructura interna",
     description:
-      "Acompañamos la gestión operativa de personas para que tu empresa pueda enfocarse en crecer, tomar decisiones y desarrollar su negocio.",
+      "Externalizamos tareas y procesos de RR.HH. para que puedas enfocarte en el negocio mientras nosotros sostenemos la operación.",
     summary:
-      "Tomamos la operación diaria de RR.HH. con procesos claros, seguimiento y soporte para equipos que necesitan orden sin armar una estructura sobredimensionada.",
+      "Delegá procesos clave de RR.HH. en un equipo externo que se ocupa de ejecutar y sostener la operación de tu empresa, sin necesidad de sumar estructura interna: liquidación de sueldos, administración, búsquedas y compensaciones.",
     icon: "users",
+    focus:
+      "Nos ocupamos de sostener procesos clave de RR.HH. para que tu empresa pueda operar con más tranquilidad y menos urgencias.",
+    scopeTitle: "Procesos que podemos tomar por vos",
+    scopeNote: "¿No encontrás lo que necesitás? Contanos tu situación y vemos cómo ayudarte.",
     subservices: [
-      "Payroll y administración HR",
-      "Gestión de novedades",
-      "Vacaciones y licencias",
-      "Altas y bajas",
-      "Legajos y documentación",
-      "Atención al empleado",
-      "Recruiting y selección",
-      "Onboarding",
-      "People Operations",
-      "HR Shared Services",
-      "Soporte temporal para equipos sin estructura HR",
+      "Payroll e impuestos",
+      "Administración de personal",
+      "Selección e incorporación",
+      "Compensaciones y beneficios",
+      "Soporte HR",
     ],
-    detailTitle: "Problemas que resolvemos",
+    detailTitle: "Problemas que ayudamos a resolver",
     detailItems: [
-      "Procesos desordenados",
-      "Falta de seguimiento",
-      "Sobrecarga operativa",
+      "Procesos poco claros",
+      "Tareas sin seguimiento",
+      "Sobrecarga administrativa",
       "Dependencia de personas clave",
-      "Falta de estructura HR",
     ],
   },
   {
@@ -57,27 +57,25 @@ export const services: Service[] = [
     summary:
       "Ordenamos roles, procesos e indicadores para que RR.HH. deje de operar por urgencias y empiece a tomar decisiones con criterio de negocio.",
     icon: "target",
+    focus:
+      "Trabajo cercano, operativo y medible para que RR.HH. deje de depender de la improvisación y pueda sostener el crecimiento de la empresa.",
+    scopeTitle: "Procesos que podemos mejorar",
+    scopeNote:
+      "Cada empresa necesita un nivel distinto de estructura. Adaptamos el trabajo según la etapa y necesidad del negocio.",
     subservices: [
-      "Diseño organizacional",
       "Roles y responsabilidades",
-      "Performance management",
-      "Talent review",
-      "Compensación y beneficios",
-      "Bandas salariales",
-      "HR Analytics",
-      "KPIs y dashboards",
-      "Employee Experience",
-      "Encuestas y clima",
-      "Optimización de procesos",
+      "Procesos y circuitos HR",
+      "Compensaciones y bandas salariales",
+      "Indicadores y seguimiento",
+      "Evaluación de desempeño",
       "Automatización y mejora continua",
     ],
-    detailTitle: "Qué logramos",
+    detailTitle: "Lo que cambia cuando RR.HH. funciona",
     detailItems: [
       "Más claridad organizacional",
       "Decisiones basadas en datos",
       "Menos fricción operativa",
-      "Mejor experiencia del empleado",
-      "Procesos más eficientes",
+      "Procesos más sostenibles",
     ],
   },
   {
@@ -89,6 +87,8 @@ export const services: Service[] = [
     summary:
       "Facilitamos workshops concretos, con herramientas utilizables desde el día siguiente y foco en conversaciones, coordinación y gestión real de equipos.",
     icon: "sparkles",
+    focus:
+      "Trabajo cercano, operativo y medible para que RR.HH. deje de depender de la improvisación y pueda sostener el crecimiento de la empresa.",
     subservices: [
       "Liderazgo",
       "Feedback y conversaciones difíciles",
@@ -113,6 +113,8 @@ export const services: Service[] = [
     summary:
       "Documentamos reglas, flujos y responsabilidades para que la gestión interna sea repetible, auditable y fácil de explicar a líderes y colaboradores.",
     icon: "clipboard",
+    focus:
+      "Trabajo cercano, operativo y medible para que RR.HH. deje de depender de la improvisación y pueda sostener el crecimiento de la empresa.",
     subservices: [
       "Políticas internas",
       "Vacaciones y licencias",

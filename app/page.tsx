@@ -65,11 +65,11 @@ export default function Home() {
             </span>
             <span>
               <span className="block text-lg font-black leading-none tracking-normal">HR4All</span>
-              <span className="text-xs font-semibold text-ink/60">People Operations para PyMEs</span>
+              <span className="text-xs font-semibold text-ink/60">People Operations</span>
             </span>
           </Link>
           <div className="hidden items-center gap-8 text-sm font-bold text-ink/70 md:flex">
-            <a className="transition hover:text-forest" href="#servicios">Servicios</a>
+            <a className="transition hover:text-forest" href="#servicios">Soluciones</a>
             <a className="transition hover:text-forest" href="#por-que">Por qué HR4All</a>
             <a className="transition hover:text-forest" href="#proceso">Proceso</a>
             <a className="transition hover:text-forest" href="#contacto">Contacto</a>
@@ -86,18 +86,20 @@ export default function Home() {
 
       <section id="inicio" className="relative overflow-hidden">
         <div className="absolute inset-x-0 top-0 h-40 bg-mint/45" aria-hidden="true" />
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 lg:grid-cols-[1fr_0.95fr] lg:px-8 lg:py-24">
           <div className="relative z-10 flex flex-col justify-center">
-            <p className="mb-5 text-sm font-black uppercase tracking-[0.28em] text-coral">
-              RR.HH. concreto para PyMEs argentinas
+            <p className="mb-6 max-w-2xl text-base font-black leading-6 text-coral md:text-lg">
+              RR.HH. pensado para empresas que necesitan procesos claros
             </p>
-            <h1 className="max-w-3xl text-5xl font-black leading-[1.02] tracking-normal text-navy md:text-6xl lg:text-7xl">
-              Ordenamos la operación de personas para que tu empresa pueda crecer
+            <h1 className="max-w-4xl text-5xl font-black leading-[0.98] tracking-normal text-navy md:text-6xl lg:text-7xl">
+              Ordenamos la operación para que tu empresa pueda crecer
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/75">
               Diseñamos, implementamos y acompañamos procesos de RR.HH. que se usan en la práctica:
-              payroll, novedades, selección, onboarding, performance, políticas, indicadores y
-              soporte operativo para equipos en crecimiento.
+              liquidación de sueldos, cargas sociales e impuestos, búsqueda y selección de personal,
+              procesos de incorporación, desempeño y desarrollo, creación y revisión de políticas
+              internas, indicadores y métricas de gestión, estructuras salariales y compensaciones,
+              y administración de beneficios corporativos.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -111,7 +113,7 @@ export default function Home() {
                 href="#servicios"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-coral px-7 py-4 text-sm font-black text-coral transition hover:bg-coral hover:text-white"
               >
-                Ver servicios
+                Ver soluciones
               </a>
             </div>
             <div className="mt-12 grid max-w-2xl gap-5 sm:grid-cols-3">
@@ -134,18 +136,18 @@ export default function Home() {
                 <div className="mb-8 grid grid-cols-3 gap-3">
                   <div className="h-36 rounded-3xl bg-white/90 p-4 text-navy">
                     <Users className="mb-7 text-forest" size={28} />
-                    <p className="text-xs font-black uppercase text-ink/60">People Ops</p>
-                    <p className="mt-1 text-2xl font-black">360</p>
+                    <p className="text-xs font-black uppercase text-ink/60">Personas</p>
+                    <p className="mt-1 text-xl font-black leading-tight">Roles claros</p>
                   </div>
                   <div className="mt-12 h-36 rounded-3xl bg-mint p-4 text-navy">
                     <BarChart3 className="mb-7 text-forest" size={28} />
                     <p className="text-xs font-black uppercase text-ink/60">Procesos</p>
-                    <p className="mt-1 text-2xl font-black">100%</p>
+                    <p className="mt-1 text-xl font-black leading-tight">Gestión ordenada</p>
                   </div>
                   <div className="h-36 rounded-3xl bg-coral p-4 text-white">
                     <ShieldCheck className="mb-7" size={28} />
                     <p className="text-xs font-black uppercase text-white/75">Seguimiento</p>
-                    <p className="mt-1 text-2xl font-black">OK</p>
+                    <p className="mt-1 text-xl font-black leading-tight">Indicadores activos</p>
                   </div>
                 </div>
                 <p className="text-sm font-black uppercase tracking-[0.24em] text-mint">
@@ -153,8 +155,8 @@ export default function Home() {
                 </p>
                 <h2 className="mt-4 text-4xl font-black leading-tight">Menos improvisación, más gestión</h2>
                 <p className="mt-4 max-w-md text-base leading-7 text-white/78">
-                  Bajamos la estrategia a rutinas, responsables, documentación e indicadores para que
-                  RR.HH. acompañe la operación real de la empresa.
+                  Transformamos tareas, procesos y responsabilidades en una operación más clara,
+                  ordenada y fácil de gestionar.
                 </p>
               </div>
             </div>
@@ -166,14 +168,15 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">Servicios</p>
+              <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">
+                Cómo podemos ayudarte
+              </p>
               <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
                 Soluciones concretas para ordenar RR.HH.
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-ink/70">
-              Cada servicio tiene un detalle propio para profundizar alcance, problemas que resolvemos
-              y entregables posibles según la etapa de tu PyME.
+              Cada solución se adapta a la etapa, estructura y necesidades reales de tu empresa.
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -184,14 +187,14 @@ export default function Home() {
                 <Link
                   key={service.slug}
                   href={`/servicios/${service.slug}`}
-                  className="group rounded-lg border border-navy/10 bg-white p-6 shadow-[0_10px_30px_rgba(5,36,74,0.05)] transition duration-300 hover:-translate-y-1 hover:border-forest/35 hover:shadow-soft focus:outline-none focus:ring-4 focus:ring-mint"
+                  className="group flex h-full flex-col rounded-lg border border-navy/10 bg-white p-6 shadow-[0_10px_30px_rgba(5,36,74,0.05)] transition duration-300 hover:-translate-y-1 hover:border-forest/35 hover:shadow-soft focus:outline-none focus:ring-4 focus:ring-mint"
                 >
                   <span className="mb-8 grid h-12 w-12 place-items-center rounded-full bg-mint text-forest transition group-hover:bg-forest group-hover:text-white">
                     <Icon size={24} aria-hidden="true" />
                   </span>
                   <h3 className="text-xl font-black">{service.name}</h3>
                   <p className="mt-3 text-sm leading-6 text-ink/68">{service.summary}</p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-coral">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-black text-coral">
                     Ver detalle
                     <ArrowRight size={16} aria-hidden="true" />
                   </span>

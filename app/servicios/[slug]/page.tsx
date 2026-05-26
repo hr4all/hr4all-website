@@ -67,7 +67,7 @@ export default function ServicePage({ params }: ServicePageProps) {
             </span>
             <span>
               <span className="block text-lg font-black leading-none tracking-normal">HR4All</span>
-              <span className="text-xs font-semibold text-ink/60">People Operations para PyMEs</span>
+              <span className="text-xs font-semibold text-ink/60">People Operations</span>
             </span>
           </Link>
           <Link
@@ -107,10 +107,7 @@ export default function ServicePage({ params }: ServicePageProps) {
               <p className="text-sm font-black uppercase tracking-[0.22em] text-forest">
                 Enfoque
               </p>
-              <p className="mt-4 text-base leading-7 text-ink/72">
-                Trabajo cercano, operativo y medible para que RR.HH. deje de depender de la
-                improvisación y pueda sostener el crecimiento de la empresa.
-              </p>
+              <p className="mt-4 text-base leading-7 text-ink/72">{service.focus}</p>
             </aside>
           </div>
         </div>
@@ -120,7 +117,9 @@ export default function ServicePage({ params }: ServicePageProps) {
         <div className="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-[1fr_0.75fr] lg:px-8">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">Alcance</p>
-            <h2 className="mt-3 text-4xl font-black tracking-normal">Qué podemos cubrir</h2>
+            <h2 className="mt-3 text-4xl font-black tracking-normal">
+              {service.scopeTitle ?? "Qué podemos cubrir"}
+            </h2>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {service.subservices.map((item) => (
                 <div
@@ -132,15 +131,18 @@ export default function ServicePage({ params }: ServicePageProps) {
                 </div>
               ))}
             </div>
+            {service.scopeNote ? (
+              <p className="mt-6 max-w-2xl text-base leading-7 text-ink/62">{service.scopeNote}</p>
+            ) : null}
           </div>
 
-          <div className="rounded-lg bg-navy p-6 text-white md:p-8">
+          <div className="rounded-lg bg-navy p-6 text-white md:self-start md:p-7">
             <p className="text-sm font-black uppercase tracking-[0.28em] text-mint">
               {service.detailTitle}
             </p>
-            <div className="mt-8 grid gap-3">
+            <div className="mt-6 grid gap-3">
               {service.detailItems.map((item) => (
-                <div key={item} className="rounded-lg border border-white/12 bg-white/7 p-4">
+                <div key={item} className="rounded-lg border border-white/12 bg-white/7 p-3.5">
                   <p className="font-black">{item}</p>
                 </div>
               ))}
@@ -157,7 +159,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                 También puede interesarte
               </p>
               <h2 className="mt-3 text-3xl font-black tracking-normal md:text-4xl">
-                Otros servicios HR4All
+                Otras soluciones HR4All
               </h2>
             </div>
             <Link href="/#servicios" className="text-sm font-black text-forest hover:text-navy">
@@ -169,11 +171,11 @@ export default function ServicePage({ params }: ServicePageProps) {
               <Link
                 key={item.slug}
                 href={`/servicios/${item.slug}`}
-                className="group rounded-lg border border-navy/10 bg-white p-5 transition hover:-translate-y-1 hover:border-forest/35 hover:shadow-soft"
+                className="group flex h-full flex-col rounded-lg border border-navy/10 bg-white p-5 transition hover:-translate-y-1 hover:border-forest/35 hover:shadow-soft"
               >
                 <h3 className="text-lg font-black">{item.name}</h3>
                 <p className="mt-3 text-sm leading-6 text-ink/68">{item.summary}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-coral">
+                <span className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-black text-coral">
                   Ver detalle
                   <ArrowRight size={16} aria-hidden="true" />
                 </span>

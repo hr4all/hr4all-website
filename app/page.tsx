@@ -4,15 +4,12 @@ import {
   BarChart3,
   CheckCircle2,
   ClipboardList,
-  Mail,
-  MapPin,
-  MessageCircle,
-  Phone,
   ShieldCheck,
   Sparkles,
   Target,
   Users,
 } from "lucide-react";
+import ContactSection from "./ContactSection";
 import { services } from "./services";
 
 const iconMap = {
@@ -23,15 +20,15 @@ const iconMap = {
 };
 
 const reasons = [
-  "Experiencia operativa en RR.HH., no solo diseño conceptual.",
-  "Procesos pensados para PyMEs argentinas: simples, claros y posibles de sostener.",
-  "Acompañamiento cercano para ordenar la gestión sin frenar la operación diaria.",
-  "People Operations, datos y mejora continua aplicados al tamaño real de cada empresa.",
+  "Experiencia operativa real en RR.HH.",
+  "Procesos simples y sostenibles para PyMEs",
+  "Acompañamiento cercano y práctico",
+  "People Operations aplicado a la realidad del negocio",
 ];
 
 const steps = [
   {
-    title: "Relevamos",
+    title: "Entendemos",
     text: "Entendemos cómo trabaja hoy la empresa: procesos, roles, urgencias, herramientas y puntos de fricción.",
   },
   {
@@ -43,8 +40,8 @@ const steps = [
     text: "Creamos procesos, documentación, rutinas e indicadores con seguimiento práctico.",
   },
   {
-    title: "Ajustamos",
-    text: "Medimos, corregimos y dejamos una operación más clara, repetible y escalable.",
+    title: "Acompañamos",
+    text: "Medimos, corregimos y ayudamos a sostener una operación más clara, repetible y escalable.",
   },
 ];
 
@@ -60,23 +57,21 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-navy/10 bg-white/90 backdrop-blur">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3" aria-label="HR4All inicio">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-mint text-sm font-black text-forest">
-              HR
-            </span>
-            <span>
-              <span className="block text-lg font-black leading-none tracking-normal">HR4All</span>
-              <span className="text-xs font-semibold text-ink/60">People Operations</span>
-            </span>
+            <img
+              src="/logo-hr4all.png"
+              alt="HR4All - People + Operations"
+              className="h-10 w-auto max-w-[150px] object-contain sm:h-12 sm:max-w-[190px]"
+            />
           </Link>
           <div className="hidden items-center gap-8 text-sm font-bold text-ink/70 md:flex">
             <a className="transition hover:text-forest" href="#servicios">Soluciones</a>
-            <a className="transition hover:text-forest" href="#por-que">Por qué HR4All</a>
             <a className="transition hover:text-forest" href="#proceso">Proceso</a>
+            <a className="transition hover:text-forest" href="#por-que">Por qué HR4All</a>
             <a className="transition hover:text-forest" href="#contacto">Contacto</a>
           </div>
           <a
             href="#contacto"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#f05931]"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#1D4ED8]"
           >
             Agendar reunión
             <ArrowRight size={16} aria-hidden="true" />
@@ -104,7 +99,7 @@ export default function Home() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#contacto"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#f05931]"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#1D4ED8]"
               >
                 Agendá una reunión
                 <ArrowRight size={18} aria-hidden="true" />
@@ -129,8 +124,8 @@ export default function Home() {
           </div>
 
           <div className="relative z-10">
-            <div className="relative min-h-[520px] overflow-hidden rounded-[32px] bg-forest shadow-soft">
-              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(31,138,91,0.92),rgba(5,36,74,0.96))]" />
+            <div className="relative min-h-[520px] overflow-hidden rounded-[32px] bg-navy shadow-soft">
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(37,99,255,0.88),rgba(6,26,61,0.96))]" />
               <div className="absolute inset-x-8 top-8 h-64 rounded-[28px] bg-white/14" />
               <div className="relative flex h-full min-h-[520px] flex-col justify-end p-8 text-white md:p-10">
                 <div className="mb-8 grid grid-cols-3 gap-3">
@@ -205,33 +200,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="por-que" className="py-16 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-coral">Por qué HR4All</p>
-            <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-              Consultoría boutique con foco operativo
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-ink/72">
-              Trabajamos cerca de dueños, líderes y equipos administrativos. No vendemos modelos
-              difíciles de implementar: ordenamos lo que pasa todos los días y lo convertimos en una
-              forma de gestión más profesional.
-            </p>
-          </div>
-          <div className="grid gap-4">
-            {reasons.map((reason) => (
-              <div
-                key={reason}
-                className="flex gap-4 rounded-lg border border-navy/10 bg-white p-5 shadow-[0_10px_30px_rgba(5,36,74,0.05)]"
-              >
-                <CheckCircle2 className="mt-1 shrink-0 text-forest" size={24} aria-hidden="true" />
-                <p className="text-base font-bold leading-7 text-ink/78">{reason}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="proceso" className="bg-navy py-16 text-white lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-12 max-w-3xl">
@@ -252,81 +220,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contacto" className="py-16 lg:py-24">
+      <section id="por-que" className="py-16 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">Contacto</p>
+            <p className="text-sm font-black uppercase tracking-[0.28em] text-coral">Por qué HR4All</p>
             <h2 className="mt-3 text-4xl font-black tracking-normal md:text-5xl">
-              Hablemos de cómo ordenar tu operación de RR.HH.
+              Menos teoría. Más gestión real.
             </h2>
             <p className="mt-5 text-lg leading-8 text-ink/72">
-              Contanos qué está trabando la gestión de personas en tu empresa y coordinamos una
-              primera conversación para detectar prioridades concretas.
+              Trabajamos cerca de dueños, líderes y equipos administrativos para ordenar procesos,
+              dar seguimiento y transformar la gestión diaria en una operación más clara y
+              sostenible.
             </p>
-            <div className="mt-8 grid gap-4 text-sm font-bold text-ink/72">
-              <p className="flex items-center gap-3">
-                <MapPin className="text-forest" size={20} aria-hidden="true" />
-                Buenos Aires, Argentina
-              </p>
-              <p className="flex items-center gap-3">
-                <Mail className="text-forest" size={20} aria-hidden="true" />
-                contacto@hr4all.com
-              </p>
-              <p className="flex items-center gap-3">
-                <Phone className="text-forest" size={20} aria-hidden="true" />
-                Atención remota para PyMEs de Argentina
-              </p>
-            </div>
           </div>
-
-          <form className="rounded-lg border border-navy/10 bg-cloud p-6 shadow-soft md:p-8">
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="text-sm font-black text-navy">
-                Nombre
-                <input
-                  className="mt-2 h-12 w-full rounded-md border border-navy/15 bg-white px-4 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                  name="name"
-                  type="text"
-                  placeholder="Tu nombre"
-                />
-              </label>
-              <label className="text-sm font-black text-navy">
-                Empresa
-                <input
-                  className="mt-2 h-12 w-full rounded-md border border-navy/15 bg-white px-4 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                  name="company"
-                  type="text"
-                  placeholder="Nombre de la empresa"
-                />
-              </label>
-            </div>
-            <label className="mt-5 block text-sm font-black text-navy">
-              Correo electrónico
-              <input
-                className="mt-2 h-12 w-full rounded-md border border-navy/15 bg-white px-4 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                name="email"
-                type="email"
-                placeholder="nombre@empresa.com"
-              />
-            </label>
-            <label className="mt-5 block text-sm font-black text-navy">
-              Mensaje
-              <textarea
-                className="mt-2 min-h-36 w-full resize-y rounded-md border border-navy/15 bg-white px-4 py-3 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                name="message"
-                placeholder="Contanos qué necesita tu equipo"
-              />
-            </label>
-            <button
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#f05931]"
-              type="submit"
-            >
-              Enviar consulta
-              <MessageCircle size={18} aria-hidden="true" />
-            </button>
-          </form>
+          <div className="grid gap-4">
+            {reasons.map((reason) => (
+              <div
+                key={reason}
+                className="flex gap-4 rounded-lg border border-navy/10 bg-white p-5 shadow-[0_10px_30px_rgba(5,36,74,0.05)]"
+              >
+                <CheckCircle2 className="mt-1 shrink-0 text-forest" size={24} aria-hidden="true" />
+                <p className="text-base font-bold leading-7 text-ink/78">{reason}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      <ContactSection />
 
       <footer className="border-t border-navy/10 bg-cloud">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-ink/65 md:flex-row md:items-center md:justify-between lg:px-8">

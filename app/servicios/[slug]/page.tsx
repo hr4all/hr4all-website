@@ -6,13 +6,11 @@ import {
   ArrowRight,
   CheckCircle2,
   ClipboardList,
-  Mail,
-  MapPin,
-  MessageCircle,
   Sparkles,
   Target,
   Users,
 } from "lucide-react";
+import ContactSection from "../../ContactSection";
 import { getService, services } from "../../services";
 
 const iconMap = {
@@ -62,17 +60,15 @@ export default function ServicePage({ params }: ServicePageProps) {
       <header className="border-b border-navy/10 bg-white">
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
           <Link href="/" className="flex items-center gap-3" aria-label="HR4All inicio">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-mint text-sm font-black text-forest">
-              HR
-            </span>
-            <span>
-              <span className="block text-lg font-black leading-none tracking-normal">HR4All</span>
-              <span className="text-xs font-semibold text-ink/60">People Operations</span>
-            </span>
+            <img
+              src="/logo-hr4all.png"
+              alt="HR4All - People + Operations"
+              className="h-10 w-auto max-w-[150px] object-contain sm:h-12 sm:max-w-[190px]"
+            />
           </Link>
           <Link
             href="/#contacto"
-            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#f05931]"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-coral px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#1D4ED8]"
           >
             Agendar reunión
             <ArrowRight size={16} aria-hidden="true" />
@@ -185,77 +181,7 @@ export default function ServicePage({ params }: ServicePageProps) {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.28em] text-forest">Contacto</p>
-            <h2 className="mt-3 text-4xl font-black tracking-normal">
-              Revisemos si este servicio encaja con tu necesidad actual
-            </h2>
-            <p className="mt-5 text-lg leading-8 text-ink/72">
-              Una primera conversación alcanza para entender el punto de partida y priorizar el
-              próximo paso sin sobredimensionar la solución.
-            </p>
-            <div className="mt-8 grid gap-4 text-sm font-bold text-ink/72">
-              <p className="flex items-center gap-3">
-                <MapPin className="text-forest" size={20} aria-hidden="true" />
-                Buenos Aires, Argentina
-              </p>
-              <p className="flex items-center gap-3">
-                <Mail className="text-forest" size={20} aria-hidden="true" />
-                contacto@hr4all.com
-              </p>
-            </div>
-          </div>
-
-          <form className="rounded-lg border border-navy/10 bg-cloud p-6 shadow-soft md:p-8">
-            <div className="grid gap-5 md:grid-cols-2">
-              <label className="text-sm font-black text-navy">
-                Nombre
-                <input
-                  className="mt-2 h-12 w-full rounded-md border border-navy/15 bg-white px-4 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                  name="name"
-                  type="text"
-                  placeholder="Tu nombre"
-                />
-              </label>
-              <label className="text-sm font-black text-navy">
-                Empresa
-                <input
-                  className="mt-2 h-12 w-full rounded-md border border-navy/15 bg-white px-4 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                  name="company"
-                  type="text"
-                  placeholder="Nombre de la empresa"
-                />
-              </label>
-            </div>
-            <label className="mt-5 block text-sm font-black text-navy">
-              Correo electrónico
-              <input
-                className="mt-2 h-12 w-full rounded-md border border-navy/15 bg-white px-4 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                name="email"
-                type="email"
-                placeholder="nombre@empresa.com"
-              />
-            </label>
-            <label className="mt-5 block text-sm font-black text-navy">
-              Mensaje
-              <textarea
-                className="mt-2 min-h-36 w-full resize-y rounded-md border border-navy/15 bg-white px-4 py-3 text-base outline-none transition focus:border-forest focus:ring-4 focus:ring-mint"
-                name="message"
-                placeholder={`Me interesa ${service.name.toLowerCase()}`}
-              />
-            </label>
-            <button
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#f05931]"
-              type="submit"
-            >
-              Enviar consulta
-              <MessageCircle size={18} aria-hidden="true" />
-            </button>
-          </form>
-        </div>
-      </section>
+      <ContactSection />
     </main>
   );
 }

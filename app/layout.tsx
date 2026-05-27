@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: "HR4All | Consultoría de Recursos Humanos para PyMEs",
   description:
     "Outsourcing, consultoría, capacitación y procesos de RR.HH. para PyMEs argentinas que necesitan ordenar su operación de personas.",
+  icons: {
+    icon: "/favicon-hr4all.png",
+    shortcut: "/favicon-hr4all.png",
+    apple: "/avatar-hr4all.png",
+  },
 };
 
 export default function RootLayout({

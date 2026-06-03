@@ -128,21 +128,21 @@ export default function Home() {
               <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(37,99,255,0.88),rgba(6,26,61,0.96))]" />
               <div className="absolute inset-x-8 top-8 h-64 rounded-[28px] bg-white/14" />
               <div className="relative flex h-full min-h-[520px] flex-col justify-end p-8 text-white md:p-10">
-                <div className="mb-8 grid grid-cols-3 gap-3">
-                  <div className="h-36 rounded-3xl bg-white/90 p-4 text-navy">
-                    <Users className="mb-7 text-forest" size={28} />
+                <div className="mb-8 grid grid-cols-1 gap-3 md:grid-cols-3">
+                  <div className="min-h-28 rounded-3xl bg-white/90 p-4 text-navy md:h-36">
+                    <Users className="mb-4 text-forest md:mb-7" size={28} />
                     <p className="text-xs font-black uppercase text-ink/60">Personas</p>
-                    <p className="mt-1 text-xl font-black leading-tight">Roles claros</p>
+                    <p className="mt-1 text-lg font-black leading-tight md:text-xl">Roles claros</p>
                   </div>
-                  <div className="mt-12 h-36 rounded-3xl bg-mint p-4 text-navy">
-                    <BarChart3 className="mb-7 text-forest" size={28} />
+                  <div className="min-h-28 rounded-3xl bg-mint p-4 text-navy md:mt-12 md:h-36">
+                    <BarChart3 className="mb-4 text-forest md:mb-7" size={28} />
                     <p className="text-xs font-black uppercase text-ink/60">Procesos</p>
-                    <p className="mt-1 text-xl font-black leading-tight">Gestión ordenada</p>
+                    <p className="mt-1 text-lg font-black leading-tight md:text-xl">Gestión ordenada</p>
                   </div>
-                  <div className="h-36 rounded-3xl bg-coral p-4 text-white">
-                    <ShieldCheck className="mb-7" size={28} />
+                  <div className="min-h-28 rounded-3xl bg-coral p-4 text-white md:h-36">
+                    <ShieldCheck className="mb-4 md:mb-7" size={28} />
                     <p className="text-xs font-black uppercase text-white/75">Seguimiento</p>
-                    <p className="mt-1 text-xl font-black leading-tight">Indicadores activos</p>
+                    <p className="mt-1 text-lg font-black leading-tight md:text-xl">Indicadores activos</p>
                   </div>
                 </div>
                 <p className="text-sm font-black uppercase tracking-[0.24em] text-mint">

@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
-const GOOGLE_CALENDAR_BOOKING_LINK = "GOOGLE_CALENDAR_BOOKING_LINK";
+const GOOGLE_CALENDAR_BOOKING_LINK = "https://calendar.app.google/uAokYvSRgdH3Wk4D6";
 
 export default function ContactSection() {
   const [contactSubmitted, setContactSubmitted] = useState(false);

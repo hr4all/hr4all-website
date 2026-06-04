@@ -8,8 +8,9 @@ const GOOGLE_CALENDAR_BOOKING_LINK = "https://calendar.app.google/uAokYvSRgdH3Wk
 export default function ContactSection() {
   const [contactSubmitted, setContactSubmitted] = useState(false);
   const [contactError, setContactError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -22,10 +23,34 @@ export default function ContactSection() {
       return;
     }
 
+    setIsSubmitting(true);
     setContactError("");
-    setContactSubmitted(true);
-  }
+    setContactSubmitted(false);
 
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: String(formData.get("name") ?? "").trim(),
+          company: String(formData.get("company") ?? "").trim(),
+          email: String(formData.get("email") ?? "").trim(),
+          need: String(formData.get("need") ?? "").trim(),
+          message: String(formData.get("message") ?? "").trim(),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("contact-submit-failed");
+      }
+
+      setContactSubmitted(true);
+    } catch {
+      setContactError("No pudimos enviar tu consulta. Probá nuevamente o escribinos por email.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
   return (
     <section id="contacto" className="py-16 lg:py-24">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
@@ -152,6 +177,7 @@ export default function ContactSection() {
           <button
             className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#1D4ED8]"
             type="submit"
+            disabled={isSubmitting}
           >
             Quiero ordenar mi operación
             <MessageCircle size={18} aria-hidden="true" />

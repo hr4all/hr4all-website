@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const GOOGLE_CALENDAR_BOOKING_LINK = "https://calendar.app.google/uAokYvSRgdH3Wk4D6";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/contacto.hr4all@gmail.com";
 
 export default function ContactSection() {
   const [contactSubmitted, setContactSubmitted] = useState(false);
@@ -28,19 +29,33 @@ export default function ContactSection() {
     setContactSubmitted(false);
 
     try {
-      const response = await fetch("/api/contact", {
+      const name = String(formData.get("name") ?? "").trim();
+      const company = String(formData.get("company") ?? "").trim();
+      const email = String(formData.get("email") ?? "").trim();
+      const need = String(formData.get("need") ?? "").trim();
+      const message = String(formData.get("message") ?? "").trim();
+
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
-          name: String(formData.get("name") ?? "").trim(),
-          company: String(formData.get("company") ?? "").trim(),
-          email: String(formData.get("email") ?? "").trim(),
-          need: String(formData.get("need") ?? "").trim(),
-          message: String(formData.get("message") ?? "").trim(),
+          _captcha: "false",
+          _replyto: email,
+          _subject: `Nueva consulta HR4All - ${company}`,
+          _template: "table",
+          Nombre: name,
+          Empresa: company,
+          "Correo electronico": email,
+          "Que necesita ordenar": need,
+          Mensaje: message,
         }),
       });
+      const responseBody = await response.json();
 
-      if (!response.ok) {
+      if (!response.ok || responseBody.success !== "true") {
         throw new Error("contact-submit-failed");
       }
 

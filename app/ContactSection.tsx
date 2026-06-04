@@ -189,14 +189,16 @@ export default function ContactSection() {
               </a>
             </div>
           ) : null}
-          <button
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#1D4ED8]"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Quiero ordenar mi operación
-            <MessageCircle size={18} aria-hidden="true" />
-          </button>
+          {!contactSubmitted ? (
+            <button
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-coral px-7 py-4 text-sm font-black text-white transition hover:-translate-y-0.5 hover:bg-[#1D4ED8]"
+              type="submit"
+              disabled={isSubmitting}
+            >
+              Quiero ordenar mi operación
+              <MessageCircle size={18} aria-hidden="true" />
+            </button>
+          ) : null}
         </form>
       </div>
     </section>
